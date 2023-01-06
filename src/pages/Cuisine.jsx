@@ -1,4 +1,3 @@
-import {motion} from 'framer-motion';
 import {Link, useParams} from 'react-router-dom';
 import {useEffect, useState} from "react";
 import {Grid, GridCard} from "../components/Styles";
@@ -21,8 +20,10 @@ const Cuisine = () => {
         <Grid>
             {cuisine.map(item =>
                 <GridCard key={item.id}>
-                    <img src={item.image} alt={item.title}/>
-                    <h4>{item.title}</h4>
+                    <Link to={`/recipe/${item.id}`}>
+                        <img src={item.image} alt={item.title}/>
+                        <h4>{item.title}</h4>
+                    </Link>
                 </GridCard>
             )}
         </Grid>
